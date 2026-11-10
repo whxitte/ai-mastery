@@ -15,6 +15,15 @@ Open http://127.0.0.1:8000. The preview server binds to localhost only and sends
 
 Opening `index.html` directly from the file system won't work, because browsers block `fetch()` of local files.
 
+## Deploy to GitHub Pages
+
+This site is static and fetches its Markdown lessons in the browser. Publish the files directly instead of using Jekyll, which can misinterpret template examples in the lessons.
+
+1. In your repository, open **Settings → Pages** and set **Build and deployment → Source** to **GitHub Actions**.
+2. Push to the `master` branch. The workflow at `.github/workflows/pages.yml` uploads the site as-is and deploys it. You can also start it from the **Actions** tab with **Run workflow**.
+
+If your default branch is not `master`, update the branch name in the workflow before pushing.
+
 ## Deploy to Vercel
 
 The `local-ai-lab` folder is the whole site. There is nothing to build.
