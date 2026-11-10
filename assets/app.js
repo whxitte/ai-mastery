@@ -415,11 +415,12 @@
     document.title = `${lesson.title} · ${COURSE.title}`;
 
     const pos = `Lesson ${lesson.indexInPart + 1} of ${lesson.part.lessons.length}`;
+    const personalSite = '<a class="kicker-site" href="https://sethusatheesh.space" target="_blank" rel="noopener noreferrer">sethusatheesh.space ↗</a>';
     if (md == null) {
-      article.innerHTML = `<div class="kicker"><span>${esc(lesson.part.title)}</span></div><h1>${esc(lesson.title)}</h1><div class="placeholder">This lesson hasn't been written yet. Check back soon.</div>`;
+      article.innerHTML = `<div class="kicker"><span>${esc(lesson.part.title)}</span>${personalSite}</div><h1>${esc(lesson.title)}</h1><div class="placeholder">This lesson hasn't been written yet. Check back soon.</div>`;
     } else {
       const html = marked.parse(md);
-      const kicker = `<div class="kicker"><span>${esc(lesson.part.title)}</span><span class="sep">/</span><span class="meta">${pos}</span><span class="sep">/</span><span class="meta">${readingMinutes(md)} min read</span></div>`;
+      const kicker = `<div class="kicker"><span>${esc(lesson.part.title)}</span><span class="sep">/</span><span class="meta">${pos}</span><span class="sep">/</span><span class="meta">${readingMinutes(md)} min read</span>${personalSite}</div>`;
       article.innerHTML = /^\s*<h1/i.test(html) ? kicker + html : kicker + `<h1>${esc(lesson.title)}</h1>` + html;
       buildCallouts(article);
       decorate(article, lesson.id);

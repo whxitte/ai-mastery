@@ -377,6 +377,8 @@ body.overview-page .content-wrap {
 }
 .kicker .sep { color: var(--faint); font-weight: 400; }
 .kicker .meta { color: var(--muted); font-weight: 450; }
+.kicker-site { margin-left: auto; color: var(--accent-text); white-space: nowrap; }
+.kicker-site:hover { color: var(--accent-hover); }
 
 .prose h1, .prose h2, .prose h3, .prose h4 {
   color: var(--text);
