@@ -403,6 +403,7 @@
   }
 
   async function showLesson(lesson, anchor) {
+    document.body.classList.remove("overview-page");
     const token = ++renderToken;
     const article = $("#article");
     let md = null;
@@ -459,6 +460,7 @@
   }
 
   function showHome() {
+    document.body.classList.add("overview-page");
     ++renderToken;
     shownId = null;
     document.title = `${COURSE.title}: ${COURSE.tagline}`;
@@ -471,7 +473,7 @@
 
     $("#article").innerHTML = `
       <section class="home-hero">
-        <div class="eyebrow">A private study lab for Sethu</div>
+        <div class="eyebrow">Your hands-on path to mastering local AI</div>
         <h1>From your first local model to editing its weights.</h1>
         <p>A step-by-step path through how LLMs work, mastering LM Studio on a 16 GB Mac, building agents, using AI for security research, fine-tuning, and weight-space surgery. Every concept is explained before it is used, and every module ends with something you build.</p>
         <div class="home-actions">
@@ -508,6 +510,7 @@
   }
 
   function showMissing(id) {
+    document.body.classList.remove("overview-page");
     ++renderToken;
     shownId = null;
     $("#article").innerHTML = `<h1>Page not found</h1><p class="lead">There is no lesson called <code>${esc(id)}</code>.</p><p><a href="#/">Back to the overview</a></p>`;
